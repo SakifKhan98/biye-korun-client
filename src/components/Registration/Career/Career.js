@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import NavBar from '../../Home/NavBar/NavBar';
-import NavReg from '../NavReg/NavReg';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import NavBar from "../../Home/NavBar/NavBar";
+import NavReg from "../NavReg/NavReg";
+import { Link } from "react-router-dom";
 
 // import { fetchCountries } from '../../../redux/actions/fetchCountriesActions';
 // import { connect } from 'react-redux';
@@ -21,17 +21,16 @@ const Career = ({ fetchCountries, addUserDetail }) => {
 
   const history = useHistory();
 
-
   // useEffect(() => {
   //     fetchCountries();
   // }, []);
 
   useEffect(() => {
-    setToken(sessionStorage.getItem('Token'));
+    setToken(sessionStorage.getItem("Token"));
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/country/country-list',
+      "https://biyekorun-staging.techserve4u.com/category/country/country-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,9 +42,9 @@ const Career = ({ fetchCountries, addUserDetail }) => {
     // https://biyekorun-staging.techserve4u.com/category/occupation/occupation-list
 
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/occupation/occupation-list',
+      "https://biyekorun-staging.techserve4u.com/category/occupation/occupation-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +58,7 @@ const Career = ({ fetchCountries, addUserDetail }) => {
     fetch(
       `https://biyekorun-staging.techserve4u.com/category/occupation-type/occupation-types-by-occupation/${selectOccupation}`,
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,9 +68,9 @@ const Career = ({ fetchCountries, addUserDetail }) => {
       .then((data) => setOccupationType(data.data));
 
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/currency/currency-list',
+      "https://biyekorun-staging.techserve4u.com/category/currency/currency-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -99,9 +98,9 @@ const Career = ({ fetchCountries, addUserDetail }) => {
     );
 
     fetch(`https://biyekorun-staging.techserve4u.com/user/user-career`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
 
@@ -119,7 +118,6 @@ const Career = ({ fetchCountries, addUserDetail }) => {
     })
       .then((res) => res.json())
       .then((json) => {
-
         console.log(json);
         if (json.statusCode === 201) {
           alert(json.message);
@@ -129,21 +127,19 @@ const Career = ({ fetchCountries, addUserDetail }) => {
           setErrorMessages(json.message);
         }
 
-
         console.log(json);
         if (json.statusCode === 201) {
           console.log(typeof json.statusCode);
-          window.location.replace('/lifestyle');
+          window.location.replace("/lifestyle");
           alert(json.message);
           return;
         } else if (json.statusCode === 409) {
-          window.location.replace('/lifestyle');
+          window.location.replace("/lifestyle");
           alert(json.message);
           return;
         }
 
         alert(json.message);
-
       });
   };
 
@@ -209,12 +205,11 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                     ) : (
                       <option value="">Please reload the page again</option>
                     )}
-
                   </select>
                 </div>
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <div>
                   <label className="brand-text" htmlFor="">
                     Occupation Type
@@ -237,16 +232,13 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                         Please select the "valid" occupation first
                       </option>
                     )}
-
                   </select>
                 </div>
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <div>
                   <label className="brand-text" htmlFor="">
-
-
                     Occupation Type
                   </label>
                   <select
@@ -296,8 +288,7 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                 </div>
               </div>
 
-
-              <div className="form-group">
+              {/* <div className="form-group">
                 <div>
                   <label className="brand-text" htmlFor="">
 
@@ -321,8 +312,7 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                     )}
                   </select>
                 </div>
-              </div>
-
+              </div> */}
 
               <div className="form-group">
                 <div>
@@ -354,7 +344,7 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                 </div>
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <div>
                   <label className="brand-text" htmlFor="">
                     Professional Area
@@ -370,7 +360,7 @@ const Career = ({ fetchCountries, addUserDetail }) => {
 
 
                 </div>
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <div>
@@ -385,7 +375,6 @@ const Career = ({ fetchCountries, addUserDetail }) => {
                     className="form-control"
                     placeholder="Ex: Software Developer"
                   />
-
                 </div>
               </div>
 

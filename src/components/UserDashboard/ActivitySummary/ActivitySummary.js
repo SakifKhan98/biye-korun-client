@@ -4,13 +4,13 @@ import React from "react";
 import SummaryCard from "../SummaryCard/SummaryCard";
 
 const ActivitySummary = ({ activitySummary }) => {
-  // const [
-  //   pendingRequest,
-  //   acceptedRequest,
-  //   contactViewers,
-  //   recentVisitor,
-  //   chatInitiated,
-  // ] = activitySummary;
+  const [
+    pendingRequest,
+    acceptedRequest,
+    contactViewers,
+    recentVisitor,
+    chatInitiated,
+  ] = activitySummary;
   console.log(activitySummary);
 
   return (
@@ -20,16 +20,28 @@ const ActivitySummary = ({ activitySummary }) => {
       </div>
       <div className="row p-3">
         <div className="col">
-          <SummaryCard digit="5" title="Pending Invitations"></SummaryCard>
-          <SummaryCard digit="7" title="Contacts Viewed"></SummaryCard>
+          <SummaryCard
+            digit={pendingRequest}
+            title="Pending Invitations"
+          ></SummaryCard>
+          <SummaryCard
+            digit={contactViewers}
+            title="Contacts Viewed"
+          ></SummaryCard>
         </div>
         <div className="col">
-          <SummaryCard digit="1" title="Accepted Invitations"></SummaryCard>
-          <SummaryCard digit="3" title="Chats Initiated"></SummaryCard>
+          <SummaryCard
+            digit={acceptedRequest}
+            title="Accepted Invitations"
+          ></SummaryCard>
+          <SummaryCard
+            digit={chatInitiated}
+            title="Chats Initiated"
+          ></SummaryCard>
         </div>
         <div className="col-md-3">
           <div className="summary-card">
-            <p>?</p>
+            <p>?{recentVisitor}</p>
             <p style={{ fontSize: 12 }}>Recent Visitors</p>
             <FontAwesomeIcon
               style={{

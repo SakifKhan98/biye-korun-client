@@ -1,7 +1,8 @@
 import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 
-const ProfileCompletion = () => {
+const ProfileCompletion = ({ profileCompletion }) => {
+  console.log(profileCompletion);
   return (
     <div className="shadow text-center mt-5 p-4">
       <h5 className="mb-5">Profile Completion</h5>

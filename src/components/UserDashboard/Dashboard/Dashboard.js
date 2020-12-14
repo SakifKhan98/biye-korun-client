@@ -22,63 +22,63 @@ const Dashboard = () => {
   const [profileImprove, setProfileImprove] = useState([]);
   const [searchById, setSearchById] = useState([]);
 
-  // useEffect(() => {
-  //   setToken(sessionStorage.getItem("Token"));
-  //   fetch("https://biyekorun-staging.techserve4u.com/user/activity-summery", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     // .then((data) => setActivitySummary(data.data));
-  //     .then((data) => console.log(data));
+  useEffect(() => {
+    setToken(sessionStorage.getItem("Token"));
+    fetch("https://biyekorun-staging.techserve4u.com/user/activity-summery", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      // .then((data) => setActivitySummary(data.data));
+      .then((data) => console.log(data));
 
-  //   fetch("https://biyekorun-staging.techserve4u.com/user/new-match-list", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setNewMatchList(data.data));
+    fetch("https://biyekorun-staging.techserve4u.com/user/new-match-list", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setNewMatchList(data.data));
 
-  //   fetch(
-  //     "https://biyekorun-staging.techserve4u.com/user/profile-completion-status",
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setProfileCompletion(data.data));
+    fetch(
+      "https://biyekorun-staging.techserve4u.com/user/profile-completion-status",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setProfileCompletion(data.data));
 
-  //   fetch(
-  //     "https://biyekorun-staging.techserve4u.com​/user​/profile-improve-suggestion",
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setProfileImprove(data.data));
+    fetch(
+      "https://biyekorun-staging.techserve4u.com​/user​/profile-improve-suggestion",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setProfileImprove(data.data));
 
-  //   fetch(
-  //     "https://biyekorun-staging.techserve4u.com/user/search-profile-by-uid",
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setSearchById(data.data));
-  // }, [token]);
+    fetch(
+      "https://biyekorun-staging.techserve4u.com/user/search-profile-by-uid",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setSearchById(data.data));
+  }, [token]);
 
   return (
     <div style={{ paddingLeft: 80, paddingRight: 80 }}>
