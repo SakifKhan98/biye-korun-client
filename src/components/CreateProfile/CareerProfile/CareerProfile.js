@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CareerProfile = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -20,11 +20,11 @@ const CareerProfile = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setToken(sessionStorage.getItem('Token'));
+    setToken(sessionStorage.getItem("Token"));
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/qualification/qualification-list',
+      "https://biyekorun-staging.techserve4u.com/category/qualification/qualification-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,9 +33,9 @@ const CareerProfile = () => {
       .then((res) => res.json())
       .then((json) => setQualifications(json.data));
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/working/working-with-list',
+      "https://biyekorun-staging.techserve4u.com/category/working/working-with-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,9 +45,9 @@ const CareerProfile = () => {
       .then((json) => setWorkingWithLists(json.data));
 
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/working/working-as-list',
+      "https://biyekorun-staging.techserve4u.com/category/working/working-as-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,9 +57,9 @@ const CareerProfile = () => {
       .then((json) => setWorkingAsLists(json.data));
 
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/income/income-duration-type-list',
+      "https://biyekorun-staging.techserve4u.com/category/income/income-duration-type-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,9 +68,9 @@ const CareerProfile = () => {
       .then((res) => res.json())
       .then((json) => setIncomeDurations(json.data));
     fetch(
-      'https://biyekorun-staging.techserve4u.com/category/income/income-type-list',
+      "https://biyekorun-staging.techserve4u.com/category/income/income-type-list",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -93,11 +93,11 @@ const CareerProfile = () => {
       })
     );
     fetch(
-      'https://biyekorun-staging.techserve4u.com/user/update-profile-carrer',
+      "https://biyekorun-staging.techserve4u.com/user/update-profile-carrer",
       {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -130,172 +130,181 @@ const CareerProfile = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              College Name
-            </label>
-            <input
-              type="text"
-              ref={register({ required: true })}
-              className="form-control"
-              name="college_name"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Company Name
-            </label>
-            <input
-              type="text"
-              ref={register({ required: true })}
-              className="form-control"
-              name="company_name"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Qualification
-            </label>
-            <select
-              required
-              ref={register({ required: true })}
-              name="qualification_id"
-              className="form-control"
-              value={qualificationId}
-              onChange={(e) => setQualificationId(e.target.value)}
-            >
-              <option value="">-- please select the country --</option>
-              {qualifications?.length >= 1 ? (
-                qualifications.map((qualification) => (
-                  <option key={qualification.id} value={qualification.id}>
-                    {qualification.name}
-                  </option>
-                ))
-              ) : (
-                <option value="">Please reload the page again</option>
-              )}
-            </select>
-          </div>
-        </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Working with
-            </label>
-            <select
-              required
-              ref={register({ required: true })}
-              name="working_with_id"
-              className="form-control"
-              value={workingWithId}
-              onChange={(e) => setWorkingWithId(e.target.value)}
-            >
-              <option value="">-- please select the country --</option>
-              {workingWithLists?.length >= 1 ? (
-                workingWithLists.map((workingList) => (
-                  <option key={workingList.id} value={workingList.id}>
-                    {workingList.name}
-                  </option>
-                ))
-              ) : (
-                <option value="">Please reload the page again</option>
-              )}
-            </select>
-          </div>
-        </div>
+    <div className="custom-form">
+      <h3 className="text-center brand-text mb-5">
+        Just a few question about your education and career
+      </h3>
+      <div className="row">
+        <div className="col-md-3"></div>
+        <div className="col-md-6">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  College Name
+                </label>
+                <input
+                  type="text"
+                  ref={register({ required: true })}
+                  className="form-control"
+                  name="college_name"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  ref={register({ required: true })}
+                  className="form-control"
+                  name="company_name"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Qualification
+                </label>
+                <select
+                  required
+                  ref={register({ required: true })}
+                  name="qualification_id"
+                  className="form-control"
+                  value={qualificationId}
+                  onChange={(e) => setQualificationId(e.target.value)}
+                >
+                  <option value="">-- please select the country --</option>
+                  {qualifications?.length >= 1 ? (
+                    qualifications.map((qualification) => (
+                      <option key={qualification.id} value={qualification.id}>
+                        {qualification.name}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="">Please reload the page again</option>
+                  )}
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Working with
+                </label>
+                <select
+                  required
+                  ref={register({ required: true })}
+                  name="working_with_id"
+                  className="form-control"
+                  value={workingWithId}
+                  onChange={(e) => setWorkingWithId(e.target.value)}
+                >
+                  <option value="">-- please select the country --</option>
+                  {workingWithLists?.length >= 1 ? (
+                    workingWithLists.map((workingList) => (
+                      <option key={workingList.id} value={workingList.id}>
+                        {workingList.name}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="">Please reload the page again</option>
+                  )}
+                </select>
+              </div>
+            </div>
 
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Working As
-            </label>
-            <select
-              required
-              ref={register({ required: true })}
-              name="working_as_id"
-              className="form-control"
-              value={workingAsId}
-              onChange={(e) => setWorkingAsId(e.target.value)}
-            >
-              <option value="">-- please select the country --</option>
-              {workingAsLists?.length >= 1 ? (
-                workingAsLists.map((workingList) => (
-                  <option key={workingList.id} value={workingList.id}>
-                    {workingList.name}
-                  </option>
-                ))
-              ) : (
-                <option value="">Please reload the page again</option>
-              )}
-            </select>
-          </div>
-        </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Income Duration
-            </label>
-            <select
-              required
-              ref={register({ required: true })}
-              name="income_duration_type_id"
-              className="form-control"
-              value={incomeDurationId}
-              onChange={(e) => setIncomeDurationId(e.target.value)}
-            >
-              <option value="">-- please select the country --</option>
-              {incomeDurations?.length >= 1 ? (
-                incomeDurations.map((incomeDuration) => (
-                  <option key={incomeDuration.id} value={incomeDuration.id}>
-                    {incomeDuration.name}
-                  </option>
-                ))
-              ) : (
-                <option value="">Please reload the page again</option>
-              )}
-            </select>
-          </div>
-        </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Income
-            </label>
-            <select
-              required
-              ref={register({ required: true })}
-              name="income_id"
-              className="form-control"
-              value={incomeId}
-              onChange={(e) => setIncomeId(e.target.value)}
-            >
-              <option value="">-- please select the country --</option>
-              {incomeLists?.length >= 1 ? (
-                incomeLists.map((income) => (
-                  <option key={income.id} value={income.id}>
-                    {income.name}
-                  </option>
-                ))
-              ) : (
-                <option value="">Please reload the page again</option>
-              )}
-            </select>
-          </div>
-        </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Working As
+                </label>
+                <select
+                  required
+                  ref={register({ required: true })}
+                  name="working_as_id"
+                  className="form-control"
+                  value={workingAsId}
+                  onChange={(e) => setWorkingAsId(e.target.value)}
+                >
+                  <option value="">-- please select the country --</option>
+                  {workingAsLists?.length >= 1 ? (
+                    workingAsLists.map((workingList) => (
+                      <option key={workingList.id} value={workingList.id}>
+                        {workingList.name}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="">Please reload the page again</option>
+                  )}
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Income Duration
+                </label>
+                <select
+                  required
+                  ref={register({ required: true })}
+                  name="income_duration_type_id"
+                  className="form-control"
+                  value={incomeDurationId}
+                  onChange={(e) => setIncomeDurationId(e.target.value)}
+                >
+                  <option value="">-- please select the country --</option>
+                  {incomeDurations?.length >= 1 ? (
+                    incomeDurations.map((incomeDuration) => (
+                      <option key={incomeDuration.id} value={incomeDuration.id}>
+                        {incomeDuration.name}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="">Please reload the page again</option>
+                  )}
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Income
+                </label>
+                <select
+                  required
+                  ref={register({ required: true })}
+                  name="income_id"
+                  className="form-control"
+                  value={incomeId}
+                  onChange={(e) => setIncomeId(e.target.value)}
+                >
+                  <option value="">-- please select the country --</option>
+                  {incomeLists?.length >= 1 ? (
+                    incomeLists.map((income) => (
+                      <option key={income.id} value={income.id}>
+                        {income.name}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="">Please reload the page again</option>
+                  )}
+                </select>
+              </div>
+            </div>
 
-        <div className="form-group row text-right">
-          <div className="col-12">
-            <input className="btn btn-grad" type="submit" value="Next" />
-          </div>
+            <div className="form-group row text-right">
+              <div className="col-12">
+                <input className="btn btn-grad" type="submit" value="Next" />
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+        <div className="col-md-3"></div>
+      </div>
     </div>
   );
 };

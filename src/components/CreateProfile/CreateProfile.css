@@ -3,6 +3,7 @@
   background: linear-gradient(90deg, #cf6ac6 0%, #8e8be6 70%);
   float: left;
   width: 100%;
+  overflow-x: hidden;
 }
 
 /* .createProfileContainer.inner-form-container {
