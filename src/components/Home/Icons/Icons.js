@@ -1,10 +1,11 @@
 import React from "react";
 import {
-  faCommentDots,
-  faGlobe,
+  faCommentAlt,
+  faGlobeEurope,
   faMobileAlt,
   faParachuteBox,
 } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Icons.css";
 
@@ -14,13 +15,12 @@ const Icons = () => {
       <div className="row">
         <div className="col-md-3 text-center">
           <FontAwesomeIcon
-            className="icon-font"
+            className="icon"
             style={{
-              display: "inline-block",
-              color: "#9733ee",
-              fontSize: "8rem",
+              color: "#cf6ac6",
+              fontSize: "6rem",
             }}
-            icon={faCommentDots}
+            icon={faEnvelope}
           />
           <h1 className="brand-text text-center">350 k</h1>
           <p className="brand-text text-center">Messages per day</p>
@@ -29,10 +29,10 @@ const Icons = () => {
           <FontAwesomeIcon
             className="icon-font"
             style={{
-              color: "#9733ee",
-              fontSize: "8rem",
+              color: "#cf6ac6",
+              fontSize: "6rem",
             }}
-            icon={faGlobe}
+            icon={faGlobeEurope}
           />
           <h1 className="brand-text text-center">50 M</h1>
           <p className="brand-text text-center">Registered Users Online</p>
@@ -41,8 +41,8 @@ const Icons = () => {
           <FontAwesomeIcon
             className="icon-font"
             style={{
-              color: "#9733ee",
-              fontSize: "8rem",
+              color: "#cf6ac6",
+              fontSize: "6rem",
             }}
             icon={faMobileAlt}
           />
@@ -53,8 +53,8 @@ const Icons = () => {
           <FontAwesomeIcon
             className="icon-font"
             style={{
-              color: "#9733ee",
-              fontSize: "8rem",
+              color: "#cf6ac6",
+              fontSize: "6rem",
             }}
             icon={faParachuteBox}
           />

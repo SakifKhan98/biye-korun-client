@@ -1,3 +1,8 @@
+.subscribe {
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+}
 .sub-icon {
-  text-align: center !important;
+  border-radius: 50% !important;
+  border-color: #9733ee !important;
 }

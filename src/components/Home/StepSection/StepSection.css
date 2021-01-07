@@ -1,3 +1,7 @@
 .image {
   border-left: thick solid#d47edf;
 }
+.steps {
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+}

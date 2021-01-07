@@ -3,3 +3,8 @@
   height: 270px;
   width: 270px;
 }
+.couple-card {
+  box-shadow: 5px 10px 17px -5px rgba(207, 106, 198, 0.75);
+  -webkit-box-shadow: 5px 10px 17px -5px rgba(207, 106, 198, 0.75);
+  -moz-box-shadow: 5px 10px 17px -5px rgba(207, 106, 198, 0.75);
+}

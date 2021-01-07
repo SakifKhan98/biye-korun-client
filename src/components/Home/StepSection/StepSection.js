@@ -4,7 +4,7 @@ import "./StepSection.css";
 
 const StepSection = () => {
   return (
-    <div className="row mt-4">
+    <div className="row steps">
       <div className="col-md-1"></div>
       <div className="col-md-5 ">
         <h1

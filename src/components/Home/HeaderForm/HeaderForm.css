@@ -127,7 +127,23 @@
 .form-group {
   background-color: white;
 } */
+/* @media all and (min-width: 480px) {
+  #booking {
+    display: block;
+  }
+  #booking {
+    display: none;
+  }
+} */
 
+@media all and (max-width: 479px) {
+  #booking {
+    display: none;
+  }
+  #booking {
+    display: block;
+  }
+}
 #booking {
   background-color: #8e8ae9;
   margin-top: 60px;

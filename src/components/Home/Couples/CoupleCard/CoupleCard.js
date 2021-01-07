@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import wedding from "../../../../images/maxresdefault-6.jpg";
+import wedding from "../../../../images/cutecouple.jpg";
 import "./CoupleCard.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const CoupleCard = () => {
   return (
     <div className="p-4">
-      <Card className="p-4">
+      <Card className="p-4 couple-card">
         <Card.Img
           className="img-fluid wed-img p-4"
           variant="top"
@@ -16,9 +16,8 @@ const CoupleCard = () => {
         />
         <Card.Body>
           <Card.Title style={{ color: "#8e8be6" }} className="text-center">
-            {" "}
             <FontAwesomeIcon
-              className=""
+              className="mr-2"
               style={{ color: "#8e8be6", fontSize: "1rem" }}
               icon={faHeart}
             />

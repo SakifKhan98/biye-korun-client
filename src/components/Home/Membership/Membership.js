@@ -9,8 +9,12 @@ const Membership = () => {
       <h1 className="text-center brand-text ">
         Membership <font color="#cf6ac6">Plans</font>
       </h1>
-      <p className="text-center brand-text ">Benefit from Biye Korun at its</p>
-      <p className="text-center brand-text ">maximus you!</p>
+      <p className="text-center" style={{ color: "#cf6ac6" }}>
+        Benefit from Biye Korun at its
+      </p>
+      <p className="text-center" style={{ color: "#cf6ac6" }}>
+        maximus you!
+      </p>
       <table>
         <tr>
           <th style={{ backgroundColor: "#cf6ac6" }}></th>
@@ -147,7 +151,10 @@ const Membership = () => {
           </td>
         </tr>
       </table>
-      <button className="btn premium-btn  pricing" style={{ fontSize: "2rem" }}>
+      <button
+        className="btn premium-btn shadow-lg pricing"
+        style={{ fontSize: "2rem" }}
+      >
         SEE PRICING LIST
       </button>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CoupleCard from "./CoupleCard/CoupleCard";
+import "./Couples.css";
 
 const Couples = () => {
   const responsive = {
@@ -16,7 +17,7 @@ const Couples = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -24,32 +25,34 @@ const Couples = () => {
     },
   };
   return (
-    <div className="container mt-4">
+    <div className="couple container mt-4">
       <h2 className="text-center brand-text mb-3">Lakhs Of Happy Couple</h2>
       <p className="text-center brand-text mb-3">Created By BiyeKorun</p>
-      <Carousel infinite={true} responsive={responsive}>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-        <div>
-          <CoupleCard></CoupleCard>
-        </div>
-      </Carousel>
+      <div>
+        <Carousel infinite={true} responsive={responsive}>
+          <div>
+            <CoupleCard></CoupleCard>
+          </div>
+          <div>
+            <CoupleCard></CoupleCard>
+          </div>
+          <div>
+            <CoupleCard></CoupleCard>
+          </div>
+          {/* <div>
+            <CoupleCard></CoupleCard>
+          </div> */}
+          {/* <div>
+            <CoupleCard></CoupleCard>
+          </div>
+          <div>
+            <CoupleCard></CoupleCard>
+          </div>
+          <div>
+            <CoupleCard></CoupleCard>
+          </div> */}
+        </Carousel>
+      </div>
     </div>
   );
 };
