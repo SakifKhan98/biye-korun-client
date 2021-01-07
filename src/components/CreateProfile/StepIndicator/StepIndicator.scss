@@ -1,5 +1,5 @@
 .stepIndicator {
-  width: 600px;
+  // width: 600px;
   margin: 0 auto 50px;
   position: relative;
 
@@ -9,9 +9,9 @@
       color: #ffffff;
     }
     .circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 60%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       background-color: #8e8be6;
       z-index: 3;
 
@@ -31,7 +31,7 @@
     border-top: 4px dotted rgb(209, 209, 209);
     position: absolute;
     // position: relative;
-    margin-left: 70px;
+    // margin-left: 70px;
     // top: 50%;
     // left: 0;
     transform: translateY(-50%);
@@ -39,17 +39,17 @@
   }
 }
 
-@media (max-width: 768px) {
-  .stepIndicator {
-    width: 400px;
+// @media (max-width: 768px) {
+//   .stepIndicator {
+//     width: 400px;
 
-    .circle {
-      width: 30px;
-      height: 30px;
-    }
+//     .circle {
+//       width: 30px;
+//       height: 30px;
+//     }
 
-    .line {
-      width: 400px;
-    }
-  }
-}
+//     .line {
+//       width: 400px;
+//     }
+//   }
+// }

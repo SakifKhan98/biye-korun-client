@@ -35,3 +35,17 @@
   color: #fff;
   text-decoration: none;
 }
+
+.custom-form .form-control {
+  border: none;
+  border-radius: none;
+  border-bottom: 1px solid #8e8be6;
+  transition: all 0.15s ease-in-out;
+}
+.custom-form .form-control:focus {
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+  border-bottom: 2px solid #cf6ac6;
+  /* transition: border-color 0.25s ease-in-out, box-shadow 0.15s ease-in-out; */
+}

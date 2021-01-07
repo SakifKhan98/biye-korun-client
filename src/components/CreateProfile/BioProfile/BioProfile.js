@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const BioProfile = () => {
   const [token, setToken] = useState(null);
@@ -9,7 +9,7 @@ const BioProfile = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setToken(sessionStorage.getItem('Token'));
+    setToken(sessionStorage.getItem("Token"));
   }, []);
 
   const onSubmit = (data) => {
@@ -19,10 +19,10 @@ const BioProfile = () => {
         phone_number: data.phone_number,
       })
     );
-    fetch('https://biyekorun-staging.techserve4u.com/user/update-profile-bio', {
-      method: 'PUT',
+    fetch("https://biyekorun-staging.techserve4u.com/user/update-profile-bio", {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
@@ -49,48 +49,57 @@ const BioProfile = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              About Yourself
-            </label>
-            <textarea
-              rows="7"
-              cols="5"
-              required
-              ref={register({ required: true })}
-              type="text"
-              name="bio"
-              className="form-control"
-              placeholder="Express Yourself must be longer than 50 characters"
-            ></textarea>
-          </div>
+    <div className="custom-form">
+      <h3 className="text-center brand-text mb-5">
+        Express yourself and jump in
+      </h3>
+      <div className="row">
+        <div className="col-sm-1 col-md-3"></div>
+        <div className="col-sm-10 col-md-6">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  About Yourself
+                </label>
+                <textarea
+                  rows="7"
+                  cols="5"
+                  required
+                  ref={register({ required: true })}
+                  type="text"
+                  name="bio"
+                  className="form-control"
+                  placeholder="Express Yourself must be longer than 50 characters"
+                ></textarea>
+              </div>
+            </div>
+            <div className="form-group">
+              <div>
+                <label className="brand-text" htmlFor="">
+                  Phone Number
+                </label>
+                <input
+                  required
+                  ref={register({ required: true })}
+                  type="number"
+                  minLength="11"
+                  maxLength="14"
+                  name="phone_number"
+                  className="form-control"
+                  placeholder="Ex: +88012345678910 / 012345678910"
+                />
+              </div>
+            </div>
+            <div className="form-group row text-right">
+              <div className="col-12">
+                <input className="btn btn-grad" type="submit" value="Next" />
+              </div>
+            </div>
+          </form>
         </div>
-        <div className="form-group">
-          <div>
-            <label className="brand-text" htmlFor="">
-              Phone Number
-            </label>
-            <input
-              required
-              ref={register({ required: true })}
-              type="number"
-              minLength="11"
-              maxLength="14"
-              name="phone_number"
-              className="form-control"
-              placeholder="Ex: +88012345678910 / 012345678910"
-            />
-          </div>
-        </div>
-        <div className="form-group row text-right">
-          <div className="col-12">
-            <input className="btn btn-grad" type="submit" value="Next" />
-          </div>
-        </div>
-      </form>
+        <div className="col-sm-1 col-md-3"></div>
+      </div>
     </div>
   );
 };
