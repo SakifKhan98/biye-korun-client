@@ -159,6 +159,7 @@ const BasicProfile = () => {
     )
       .then((response) => response.json())
       .then((json) => {
+        console.log(json);
         if (json.statusCode === 201) {
           toast.success(json.message);
           history.push(`/createProfile/advancedProfile`);
