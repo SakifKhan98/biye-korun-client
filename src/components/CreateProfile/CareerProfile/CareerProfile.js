@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CareerProfile = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -20,11 +20,11 @@ const CareerProfile = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setToken(sessionStorage.getItem("Token"));
+    setToken(sessionStorage.getItem('Token'));
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/qualification/qualification-list",
+      'https://biyekorun-staging.techserve4u.com/category/qualification/qualification-list',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,9 +33,9 @@ const CareerProfile = () => {
       .then((res) => res.json())
       .then((json) => setQualifications(json.data));
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/working/working-with-list",
+      'https://biyekorun-staging.techserve4u.com/category/working/working-with-list',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,9 +45,9 @@ const CareerProfile = () => {
       .then((json) => setWorkingWithLists(json.data));
 
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/working/working-as-list",
+      'https://biyekorun-staging.techserve4u.com/category/working/working-as-list',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,9 +57,9 @@ const CareerProfile = () => {
       .then((json) => setWorkingAsLists(json.data));
 
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/income/income-duration-type-list",
+      'https://biyekorun-staging.techserve4u.com/category/income/income-duration-type-list',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,9 +68,9 @@ const CareerProfile = () => {
       .then((res) => res.json())
       .then((json) => setIncomeDurations(json.data));
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/income/income-type-list",
+      'https://biyekorun-staging.techserve4u.com/category/income/income-type-list',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -93,11 +93,12 @@ const CareerProfile = () => {
       })
     );
     fetch(
-      "https://biyekorun-staging.techserve4u.com/user/update-profile-carrer",
+      'https://biyekorun-staging.techserve4u.com/user/update-profile-career',
+      //https://biyekorun-staging.techserve4u.com/user/update-profile-career
       {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
