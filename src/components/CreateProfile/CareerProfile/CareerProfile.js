@@ -93,7 +93,7 @@ const CareerProfile = () => {
       })
     );
     fetch(
-      "https://biyekorun-staging.techserve4u.com/user/update-profile-carrer",
+      "https://biyekorun-staging.techserve4u.com/user/update-profile-career",
       {
         method: "PUT",
         headers: {
