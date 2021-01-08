@@ -91,9 +91,15 @@ const BioProfile = () => {
                 />
               </div>
             </div>
-            <div className="form-group row text-right">
-              <div className="col-12">
-                <input className="btn btn-grad" type="submit" value="Next" />
+            <div className="form-group row justify-content-center ">
+              <div className="col-md-4"></div>
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <input
+                  className="btn btn-grad ml-auto"
+                  type="submit"
+                  value="Next"
+                />
               </div>
             </div>
           </form>

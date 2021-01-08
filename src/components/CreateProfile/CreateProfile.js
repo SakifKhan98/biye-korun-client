@@ -7,6 +7,7 @@ import CareerProfile from "./CareerProfile/CareerProfile";
 import StepIndicator from "./StepIndicator/StepIndicator";
 import "./CreateProfile.css";
 import ProfileNavbar from "./ProfileNavbar/ProfileNavbar";
+import StepperMUI from "./StepperMUI/StepperMUI";
 
 const CreateProfile = () => {
   const { formId } = useParams();
@@ -29,7 +30,9 @@ const CreateProfile = () => {
                 borderRadius: 10,
               }}
             >
-              <StepIndicator></StepIndicator>
+              <StepperMUI></StepperMUI>
+
+              {/* <StepIndicator></StepIndicator> */}
               {formId === "basicProfile" ? (
                 <BasicProfile></BasicProfile>
               ) : formId === "advancedProfile" ? (
