@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepButton from "@material-ui/core/StepButton";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import { Link, useParams } from "react-router-dom";
-import BasicProfile from "../BasicProfile/BasicProfile";
-import AdvancedProfile from "../AdvancedProfile/AdvancedProfile";
-import CareerProfile from "../CareerProfile/CareerProfile";
-import BioProfile from "../BioProfile/BioProfile";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepButton from '@material-ui/core/StepButton';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Link, useParams } from 'react-router-dom';
+import BasicProfile from '../BasicProfile/BasicProfile';
+import AdvancedProfile from '../AdvancedProfile/AdvancedProfile';
+import CareerProfile from '../CareerProfile/CareerProfile';
+import BioProfile from '../BioProfile/BioProfile';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: '100%',
   },
   button: {
     marginRight: theme.spacing(1),
   },
   completed: {
-    display: "inline-block",
+    display: 'inline-block',
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -28,21 +28,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Basic Profile", "Advanced Prfoile", "Career Profile", "Bio"];
+  return ['Basic Profile', 'Advanced Prfoile', 'Career Profile', 'Bio'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <BasicProfile></BasicProfile>;
+      return <BasicProfile />;
     case 1:
-      return <AdvancedProfile></AdvancedProfile>;
+      return <AdvancedProfile />;
     case 2:
-      return <CareerProfile></CareerProfile>;
+      return <CareerProfile />;
     case 3:
-      return <BioProfile></BioProfile>;
+      return <BioProfile />;
     default:
-      return "Unknown step";
+      return 'Unknown step';
   }
 }
 
@@ -108,7 +108,7 @@ export default function StepperMUI() {
             ? 0
             : formId === `advancedProfile`
             ? 1
-            : formId === "careerProfile"
+            : formId === 'careerProfile'
             ? 2
             : formId === `bioProfile`
             ? 3
@@ -122,7 +122,18 @@ export default function StepperMUI() {
               onClick={handleStep(index)}
               // completed={completed[index]}
             >
-              {label}
+              {index === 0 && (
+                <Link to="/createProfile/basicProfile">{label}</Link>
+              )}
+              {index === 1 && (
+                <Link to="/createProfile/careerProfile">{label}</Link>
+              )}
+              {index === 2 && (
+                <Link to="/createProfile/advancedProfile">{label}</Link>
+              )}
+              {index === 3 && (
+                <Link to="/createProfile/bioProfile">{label}</Link>
+              )}
             </StepButton>
           </Step>
         ))}
