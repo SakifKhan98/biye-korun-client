@@ -84,7 +84,7 @@ const Login = ({ modalIsOpen, closeModal }) => {
 
             if (registration_completion_status === false) {
               fetch(
-                'https://biyekorun-staging.techserve4u.com/user/user-registration-status',
+                'https://biyekorun-staging.techserve4u.com/user/profile-completion-status',
                 {
                   method: 'GET',
                   headers: {
@@ -94,27 +94,33 @@ const Login = ({ modalIsOpen, closeModal }) => {
               )
                 .then((res) => res.json())
                 .then((json) => {
-                  console.log(json.message);
-                  const route = json.message.toLowerCase();
-                  let finalRoute = route.slice(5, 11);
-                  if (finalRoute === 'carrer') {
-                    finalRoute = 'createProfile/careerProfile';
-                    /* 
+                  console.log(json.profileCompletionStatus);
+
+                  if (json.statusCode === 404) {
+                    window.location.replace(`/createProfile/basicProfile`);
+                  } else if (
+                    json.profileCompletionStatus
+                      .register_form_two_completion_status === false
+                  ) {
+                    window.location.replace(`/createProfile/advancedProfile`);
+                  } else if (
+                    json.profileCompletionStatus
+                      .register_form_three_completion_status === false
+                  ) {
+                    window.location.replace(`/createProfile/careerProfile`);
+                  } else if (
+                    json.profileCompletionStatus
+                      .register_form_four_completion_status === false
+                  ) {
+                    window.location.replace(`/createProfile/bioProfile`);
+                  }
+
+                  /* 
                     createProfile/basicProfile
                     createProfile/careerProfile
                     createProfile/advancedProfile
                     createProfile/bioProfile
                     */
-
-                    // window.location.replace(`/${finalRoute}`);
-                    // history.push('/registration');
-                  } else if (finalRoute === 'profil') {
-                    finalRoute = 'createProfile/basicProfile';
-                    window.location.replace(`/${finalRoute}`);
-                  } else if (finalRoute === 'family') {
-                    finalRoute = 'createProfile/advancedProfile';
-                    window.location.replace(`/${finalRoute}`);
-                  }
                 });
             } else {
               return window.location.replace('/user/dashboard');
@@ -122,17 +128,7 @@ const Login = ({ modalIsOpen, closeModal }) => {
           });
       });
 
-    // const signedInUser = {
-    //   name: name,
-    //   email: email,
-    //   accessToken: accessToken,
-    // };
-    // setLoggedInUser(signedInUser);
-    // storeAuthToken();
     closeModal();
-
-    // history.push("/registration");
-    // history.replace(from);
   };
 
   const onFailure = (res) => {
@@ -140,33 +136,6 @@ const Login = ({ modalIsOpen, closeModal }) => {
     // toast.error("Login failed", res);
     toast.error(`Failed to login. 😢`);
   };
-
-  // const storeAuthToken = () => {
-  //   sessionStorage.setItem('token', loggedInUser.accessToken);
-  // };
-
-  // const { signIn } = useGoogleLogin({
-  //   onSuccess,
-  //   onFailure,
-  //   clientId,
-  //   isSignedIn: true,
-  //   accessType: 'offline',
-  //   // responseType: 'code',
-  //   // prompt: 'consent',
-  // });
-
-  // const handleGoogleSignIn = () => {
-  //     fetch("https://biyekorun-staging.techserve4u.com/google")
-  //       .then((response) => response.json())
-  //       .then((response) => console.log(response));
-  //   fetch("https://biyekorun-staging.techserve4u.com/google", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: "{Bearer Token}",
-  //     },
-  //   }) //token without '{}'
-  //     .then((response) => console.log(response.access_token));
-  // };
 
   return (
     <div>
@@ -185,22 +154,6 @@ const Login = ({ modalIsOpen, closeModal }) => {
         <p className="text-center brand-text mb-3">
           Log in to Your Biye Korun Account
         </p>
-
-        {/* <GoogleLogin
-          style={{
-            border: "none",
-            background: "none",
-            padding: 0,
-            margin: 0,
-          }}
-          clientId={clientId}
-          buttonText="Continue with Google"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-          accessType="offline"
-        /> */}
 
         <GoogleLogin
           clientId={clientId}
