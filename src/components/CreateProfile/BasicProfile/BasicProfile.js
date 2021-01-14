@@ -34,7 +34,7 @@ const BasicProfile = () => {
       .then((res) => res.json())
       .then((data) => setCountries(data.data));
     fetch(
-      "https://biyekorun-staging.techserve4u.com/category/language/language-list",
+      "https://biyekorun-staging.techserve4u.com/category/language/language-community-list",
       {
         method: "GET",
         headers: {
